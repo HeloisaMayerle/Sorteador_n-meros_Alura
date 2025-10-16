@@ -44,3 +44,30 @@ function sortear(){
 function obterNumeroAleatorio(min, max){
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+
+//para habilitar e desabilitar o botão de reiniciar
+function alterarStatusBotao() {
+    let botao = document.getElementById('btn-reiniciar');
+    //informações retiradas do HTML
+    if (botao.classList.contains('container_botao-desabilitado')) {
+        botao.classList.remove('container_botao-desabilitado');
+        botao.classList.add('container_botao');
+    } else {
+        botao.classList.remove('container_botao');
+        botao.classList.add('container_botao-desabilitado');
+    }
+}
+
+//para habilitar o botão de reiniciar
+//utilizado o código do HTML "button onclick='reiniciar()' id=btn-reiniciar"
+function reiniciar() {
+    document.getElementById('quantidade').value = '';
+    document.getElementById('de').value = '';
+    document.getElementById('ate').value = '';
+    document.getElementById('resultado').innerHTML = '<label class="texto__paragrafo">Números sorteados:  nenhum até agora</label>'
+    alterarStatusBotao();
+
+}
+//para limpar é necessário apenas adicionar uma string vazia no valor.
+//no resultado foi adicionado o código do HTML para retornar ao texto inicial quando clicar em reiniciar.
+//ao final, adicionado pafra puxar a função de alterar o Status do botão, onde será verificado que está habilitado e desabilitar.
